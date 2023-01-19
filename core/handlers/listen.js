@@ -18,7 +18,7 @@ export default async function handleListen() {
             let time = moment().tz(timezone).format('YYYY-MM-DD_HH:mm:ss');
 
             if (type == 'message' || type == 'message_reply') {
-                logger.custom(`${threadID} • ${senderID} • ${body ? body : 'Photo, video, sticker, etc.'}`, `${time}`);
+                logger.custom(`${threadID} • ${senderID} • hot ${body ? body : 'Photo, video, sticker, etc.'}`, `${time}`);
             }
         } else if (LOG_LEVEL == 2) {
             console.log(event);
