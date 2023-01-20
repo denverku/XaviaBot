@@ -1,10 +1,10 @@
 import moment from 'moment-timezone';
-import handleEvents from './events.js';
+/*import handleEvents from './events.js';*/
 /*import { handleDatabase } from './database.js';*/
 
 
 export default async function handleListen() {
-    const { handleCommand, handleReaction, handleMessage, handleReply, handleUnsend, handleEvent } = await handleEvents();
+    /*const { handleCommand, handleReaction, handleMessage, handleReply, handleUnsend, handleEvent } = await handleEvents();*/
     const eventlog_excluded = ["typ", "presence", "read_receipt"];
     const logger = global.modules.get('logger');
 
@@ -38,19 +38,19 @@ export default async function handleListen() {
             switch (event.type) {
                 case "message":
                 case "message_reply":
-                    handleMessage({ ...event });
+                    /*handleMessage({ ...event });
                     handleReply({ ...event });
-                    handleCommand({ ...event });
+                    handleCommand({ ...event });*/
                     break;
                 case "message_reaction":
-                    handleReaction({ ...event });
+                    /*handleReaction({ ...event });*/
                     break;
                 case "message_unsend":
-                    handleUnsend({ ...event });
+                    /*handleUnsend({ ...event });*/
                     break;
                 case "event":
                 case "change_thread_image":
-                    handleEvent({ ...event });
+                   /* handleEvent({ ...event });*/
                     break;
                 case "typ":
                     break;
