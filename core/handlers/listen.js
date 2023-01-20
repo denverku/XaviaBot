@@ -15,7 +15,7 @@ export default async function handleListen() {
   
         if (LOG_LEVEL == 0) return;
         if (eventlog_excluded.includes(event.type)) return;
-        const { type, threadID, body, senderID } = event;
+        const { type, threadID, messageID, body, senderID } = event;
         if (LOG_LEVEL == 1) {
             let time = moment().tz(timezone).format('YYYY-MM-DD_HH:mm:ss');
 
