@@ -29,14 +29,14 @@ export default async function handleListen() {
         return;
     }
 
-    function handleMessage(event) {
+   /* function handleMessage(event) {
       logger.custom(event.type, `hi`);
    
       const { type, threadID, messageID, body, senderID } = event;
       api.setMessageReaction('🕓', messageID, null, true);
-       /*api.sendMessage('test', threadID, messageID);*/
+       api.sendMessage('test', threadID, messageID);
        return;
-    }
+    }*/
 
 
     return (err, event) => {
@@ -50,7 +50,7 @@ export default async function handleListen() {
             const { type, threadID, messageID, body, senderID } = event;
             api.setMessageReaction('👍', messageID, null, true);
        
-            handleMessage({ ...event });
+           /* handleMessage({ ...event });*/
                      
             switch (event.type) {
                 case "message":
