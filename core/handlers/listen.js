@@ -28,6 +28,14 @@ export default async function handleListen() {
         return;
     }
 
+    function handleMessage(event) {
+   const { api } = global;
+   const { type, threadID, messageID, body, senderID } = event;
+   api.setMessageReaction('🕓', messageID, null, true);
+   api.sendMessage('test', threadID, messageID);
+}
+
+
     return (err, event) => {
         if (global.maintain && !global.config.MODERATORS.some(e => e == event.senderID)) return;
         handleEventLog(event);
@@ -67,9 +75,3 @@ export default async function handleListen() {
     }
 }
 
-async function handleMessage(event) {
-   const { api } = global;
-   const { type, threadID, messageID, body, senderID } = event;
-   api.setMessageReaction('🕓', messageID, null, true);
-   api.sendMessage('test', threadID, messageID);
-}
