@@ -1,6 +1,6 @@
 import moment from 'moment-timezone';
 import handleEvents from './events.js';
-import { handleDatabase } from './database.js';
+/*import { handleDatabase } from './database.js';*/
 
 
 export default async function handleListen() {
