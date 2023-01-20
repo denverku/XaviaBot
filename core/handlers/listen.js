@@ -30,10 +30,10 @@ export default async function handleListen() {
 
     function handleMessage(event) {
 logger.custom(event.type, `hi`);
-   /*const { api } = global;
+   const { api } = global;
    const { type, threadID, messageID, body, senderID } = event;
    api.setMessageReaction('🕓', messageID, null, true);
-   api.sendMessage('test', threadID, messageID);*/
+   /*api.sendMessage('test', threadID, messageID);*/
        return;
     }
 
