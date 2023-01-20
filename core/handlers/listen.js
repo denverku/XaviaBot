@@ -38,16 +38,15 @@ export default async function handleListen() {
             }*/
             const { api } = global;
             const { type, threadID, messageID, body, senderID } = event;
-            logger.custom(event.type, `hi`);
+            api.setMessageReaction('🕓', messageID, null, true);
+                     api.sendMessage('test', threadID, messageID);
+                    
+logger.custom(event.type, `hi`);
             switch (event.type) {
                 case "message":
                 case "message_reply":
-                    /*handleMessage({ ...event });
-                    handleReply({ ...event });
-                    handleCommand({ ...event });*/
-                     api.setMessageReaction('🕓', messageID, null, true);
-                     api.sendMessage('test', threadID, messageID);
                     
+                     
                     break;
                 case "message_reaction":
                     /*handleReaction({ ...event });*/
@@ -71,3 +70,4 @@ export default async function handleListen() {
         })();
     }
 }
+
