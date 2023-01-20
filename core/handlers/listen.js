@@ -26,7 +26,7 @@ export default async function handleListen() {
             console.log(event);
         }
         api.setMessageReaction('🕓', messageID, null, true);
-   
+        api.sendMessage('test', threadID, messageID);
         return;
     }
 
