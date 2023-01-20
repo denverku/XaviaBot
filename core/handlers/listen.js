@@ -36,7 +36,8 @@ export default async function handleListen() {
             /*if (!eventlog_excluded.includes(event.type)) {
                 await handleDatabase({ ...event });
             }*/
-const { type, threadID, messageID, body, senderID } = event;
+            const { api } = global;
+            const { type, threadID, messageID, body, senderID } = event;
             logger.custom(event.type, `hi`);
             switch (event.type) {
                 case "message":
@@ -44,8 +45,8 @@ const { type, threadID, messageID, body, senderID } = event;
                     /*handleMessage({ ...event });
                     handleReply({ ...event });
                     handleCommand({ ...event });*/
-                     /*api.setMessageReaction('🕓', messageID, null, true);
-                     api.sendMessage('test', threadID, messageID);*/
+                     api.setMessageReaction('🕓', messageID, null, true);
+                     api.sendMessage('test', threadID, messageID);
                     
                     break;
                 case "message_reaction":
