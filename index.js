@@ -9,7 +9,7 @@ import loadPlugins from './core/var/modules/installDep.js';
 
 import environments from './core/var/modules/environments.get.js';
 
-const { isGlitch, isReplit, isGitHub } = environments;
+/*const { isGlitch, isReplit, isGitHub } = environments;*/
 
 console.clear();
 
@@ -25,9 +25,9 @@ function upNodeReplit() {
     
 
     
-    if (isGitHub) {
+    
         logger.warn("Running on GitHub is not recommended.");
-    }
+    
 })();
 
 // End
@@ -59,7 +59,7 @@ let restartCount = 0;
 
 async function main() {
     
-    await loadPlugins();
+   /*await loadPlugins();*/
     const child = spawn('node', ['--trace-warnings', '--experimental-import-meta-resolve', '--expose-gc', 'core/_build.js'], {
         cwd: process.cwd(),
         stdio: 'inherit',
