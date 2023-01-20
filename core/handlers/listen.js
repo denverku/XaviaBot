@@ -7,6 +7,7 @@ export default async function handleListen() {
     /*const { handleCommand, handleReaction, handleMessage, handleReply, handleUnsend, handleEvent } = await handleEvents();*/
     const eventlog_excluded = ["typ", "presence", "read_receipt"];
     const logger = global.modules.get('logger');
+    const { api } = global;
 
     function handleEventLog(event) {
         const { LOG_LEVEL, timezone } = global.config;
@@ -29,11 +30,11 @@ export default async function handleListen() {
     }
 
     function handleMessage(event) {
-logger.custom(event.type, `hi`);
-   const { api } = global;
-   const { type, threadID, messageID, body, senderID } = event;
-   api.setMessageReaction('🕓', messageID, null, true);
-   /*api.sendMessage('test', threadID, messageID);*/
+      logger.custom(event.type, `hi`);
+   
+      const { type, threadID, messageID, body, senderID } = event;
+      api.setMessageReaction('🕓', messageID, null, true);
+       /*api.sendMessage('test', threadID, messageID);*/
        return;
     }
 
@@ -46,7 +47,9 @@ logger.custom(event.type, `hi`);
             /*if (!eventlog_excluded.includes(event.type)) {
                 await handleDatabase({ ...event });
             }*/
-            
+            const { type, threadID, messageID, body, senderID } = event;
+            api.setMessageReaction('👍', messageID, null, true);
+       
             handleMessage({ ...event });
                      
             switch (event.type) {
