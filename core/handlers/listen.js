@@ -10,7 +10,9 @@ export default async function handleListen() {
 
     function handleEventLog(event) {
         const { LOG_LEVEL, timezone } = global.config;
-
+        const { api } = global;
+        const { threadID, messageID, senderID, args } = event;
+  
         if (LOG_LEVEL == 0) return;
         if (eventlog_excluded.includes(event.type)) return;
         const { type, threadID, body, senderID } = event;
@@ -23,7 +25,8 @@ export default async function handleListen() {
         } else if (LOG_LEVEL == 2) {
             console.log(event);
         }
-
+        api.setMessageReaction('🕓', messageID, null, true);
+   
         return;
     }
 
