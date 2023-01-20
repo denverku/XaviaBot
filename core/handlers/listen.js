@@ -11,7 +11,7 @@ export default async function handleListen() {
     function handleEventLog(event) {
         const { LOG_LEVEL, timezone } = global.config;
         const { api } = global;
-        const { threadID, messageID, senderID, args } = event;
+        /*const { threadID, messageID, senderID, args } = event;*/
   
         if (LOG_LEVEL == 0) return;
         if (eventlog_excluded.includes(event.type)) return;
