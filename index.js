@@ -23,8 +23,7 @@ function upNodeReplit() {
 
 (async () => {
     if (process.version.slice(1).split('.')[0] < 16) {
-        if (isReplit) {
-            try {
+        try {
                 logger.warn("Installing Node.js v16 for Repl.it...");
                 await upNodeReplit();
                 if (process.version.slice(1).split('.')[0] < 16) throw new Error("Failed to install Node.js v16.");
@@ -32,28 +31,12 @@ function upNodeReplit() {
                 logger.error(err);
                 process.exit(0);
             }
-        }
+        
         logger.error("Xavia requires Node 16 or higher. Please update your version of Node.");
         process.exit(0);
     }
 
-    if (isGlitch) {
-        const WATCH_FILE = {
-            "restart": {
-                "include": [
-                    "\\.json"
-                ]
-            },
-            "throttle": 3000
-        }
-
-        if (!existsSync(process.cwd() + '/watch.json') || !statSync(process.cwd() + '/watch.json').isFile()) {
-            logger.warn("Glitch environment detected. Creating watch.json...");
-            writeFileSync(process.cwd() + '/watch.json', JSON.stringify(WATCH_FILE, null, 2));
-            execSync('refresh');
-        }
-    }
-
+    
     if (isGitHub) {
         logger.warn("Running on GitHub is not recommended.");
     }
@@ -87,7 +70,7 @@ const _1_MINUTE = 60000;
 let restartCount = 0;
 
 async function main() {
-    await checkUpdate();
+    
     await loadPlugins();
     const child = spawn('node', ['--trace-warnings', '--experimental-import-meta-resolve', '--expose-gc', 'core/_build.js'], {
         cwd: process.cwd(),
