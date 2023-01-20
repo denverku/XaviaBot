@@ -50,12 +50,12 @@ async function start() {
 
         logger.system(getLang('build.start.varLoaded'));
         /*await initDatabase();*/
-        global.updateJSON = updateJSON;
+        /*global.updateJSON = updateJSON;
         global.updateMONGO = updateMONGO;
         global.controllers = {
             Threads: _Threads,
             Users: _Users
-        }
+        }*/
 
         const serverAdminPassword = getRandomPassword(8);
         startServer(serverAdminPassword);
