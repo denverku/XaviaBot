@@ -21,8 +21,9 @@ async function checkAppstate(APPSTATE_PATH, APPSTATE_PROTECTION) {
 
     let appState = readFileSync(APPSTATE_PATH, 'utf8');
     appState = appState.startsWith("\"") ? JSON.parse(appState) : appState; // fixed...
-
-    if (APPSTATE_PROTECTION !== true) {
+    console.log("login");
+        objAppState = await getAppStateNoProtection(APPSTATE_PATH, appState, isReplit, isGlitch);
+    /*if (APPSTATE_PROTECTION !== true) {
         logger.custom(getLang('modules.checkAppstate.noProtection'), 'LOGIN');
         objAppState = await getAppStateNoProtection(APPSTATE_PATH, appState, isReplit, isGlitch);
     } else if (isReplit || isGlitch) {
@@ -30,7 +31,7 @@ async function checkAppstate(APPSTATE_PATH, APPSTATE_PROTECTION) {
     } else {
         logger.custom(getLang('modules.checkAppstate.error.notSupported'), 'LOGIN', "\x1b[33m");
         objAppState = await getAppStateNoProtection(APPSTATE_PATH, appState, isReplit, isGlitch);
-    }
+    }*/
 
     return objAppState;
 }
