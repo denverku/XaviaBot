@@ -13,7 +13,7 @@ import _init_var from './var/_init.js';
 
 import replitDB from "@replit/database";
 import { execSync } from 'child_process';
-import { initDatabase, updateJSON, updateMONGO, _Threads, _Users } from './handlers/database.js';
+/*import { initDatabase, updateJSON, updateMONGO, _Threads, _Users } from './handlers/database.js';*/
 
 const { isGlitch, isReplit } = environments;
 
