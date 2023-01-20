@@ -29,11 +29,13 @@ export default async function handleListen() {
     }
 
     function handleMessage(event) {
-   const { api } = global;
+logger.custom(event.type, `hi`);
+   /*const { api } = global;
    const { type, threadID, messageID, body, senderID } = event;
    api.setMessageReaction('🕓', messageID, null, true);
-   api.sendMessage('test', threadID, messageID);
-}
+   api.sendMessage('test', threadID, messageID);*/
+       return;
+    }
 
 
     return (err, event) => {
@@ -45,12 +47,12 @@ export default async function handleListen() {
                 await handleDatabase({ ...event });
             }*/
             
-            logger.custom(event.type, `hi`);
+            handleMessage({ ...event });
+                     
             switch (event.type) {
                 case "message":
                 case "message_reply":
-                    handleMessage({ ...event });
-                     
+                    
                     break;
                 case "message_reaction":
                     /*handleReaction({ ...event });*/
