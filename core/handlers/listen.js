@@ -41,7 +41,7 @@ export default async function handleListen() {
             switch (event.type) {
                 case "message":
                 case "message_reply":
-                    handleMessage(event);
+                    handleMessage({ ...event });
                      
                     break;
                 case "message_reaction":
