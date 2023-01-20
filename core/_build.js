@@ -46,10 +46,10 @@ process.on('SIGHUP', () => {
 
 async function start() {
     try {
-        await _init_var();
+        /*await _init_var();*/
 
         logger.system(getLang('build.start.varLoaded'));
-        await initDatabase();
+        /*await initDatabase();*/
         global.updateJSON = updateJSON;
         global.updateMONGO = updateMONGO;
         global.controllers = {
