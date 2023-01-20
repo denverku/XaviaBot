@@ -37,16 +37,16 @@ export default async function handleListen() {
                 await handleDatabase({ ...event });
             }*/
 const { type, threadID, messageID, body, senderID } = event;
-        
+            logger.custom(event.type, `hi`);
             switch (event.type) {
                 case "message":
                 case "message_reply":
                     /*handleMessage({ ...event });
                     handleReply({ ...event });
                     handleCommand({ ...event });*/
-                     api.setMessageReaction('🕓', messageID, null, true);
-                     api.sendMessage('test', threadID, messageID);
-       
+                     /*api.setMessageReaction('🕓', messageID, null, true);
+                     api.sendMessage('test', threadID, messageID);*/
+                    
                     break;
                 case "message_reaction":
                     /*handleReaction({ ...event });*/
