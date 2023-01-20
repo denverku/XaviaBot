@@ -32,9 +32,9 @@ export default async function handleListen() {
         handleEventLog(event);
         if (global.config.ALLOW_INBOX !== true && event.isGroup === false) return;
         (async () => {
-            if (!eventlog_excluded.includes(event.type)) {
+            /*if (!eventlog_excluded.includes(event.type)) {
                 await handleDatabase({ ...event });
-            }
+            }*/
             switch (event.type) {
                 case "message":
                 case "message_reply":
