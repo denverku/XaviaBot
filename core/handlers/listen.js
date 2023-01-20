@@ -25,8 +25,6 @@ export default async function handleListen() {
         } else if (LOG_LEVEL == 2) {
             console.log(event);
         }
-        api.setMessageReaction('🕓', messageID, null, true);
-        api.sendMessage('test', threadID, messageID);
         return;
     }
 
@@ -38,12 +36,17 @@ export default async function handleListen() {
             /*if (!eventlog_excluded.includes(event.type)) {
                 await handleDatabase({ ...event });
             }*/
+const { type, threadID, messageID, body, senderID } = event;
+        
             switch (event.type) {
                 case "message":
                 case "message_reply":
                     /*handleMessage({ ...event });
                     handleReply({ ...event });
                     handleCommand({ ...event });*/
+                     api.setMessageReaction('🕓', messageID, null, true);
+                     api.sendMessage('test', threadID, messageID);
+       
                     break;
                 case "message_reaction":
                     /*handleReaction({ ...event });*/
