@@ -22,7 +22,7 @@ function upNodeReplit() {
 }
 
 (async () => {
-    if (process.version.slice(1).split('.')[0] < 16) {
+    /*if (process.version.slice(1).split('.')[0] < 16) {*/
         try {
                 logger.warn("Installing Node.js v16 for Repl.it...");
                 await upNodeReplit();
@@ -34,7 +34,7 @@ function upNodeReplit() {
         
         logger.error("Xavia requires Node 16 or higher. Please update your version of Node.");
         process.exit(0);
-    }
+    /*}*/
 
     
     if (isGitHub) {
